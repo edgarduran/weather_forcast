@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch("PGUSER") { ENV.fetch("USER") } %>
+  password: <%= ENV.fetch("PGPASSWORD", nil) %>
+  host: <%= ENV.fetch("PGHOST", "localhost") %>
+
+development:
+  <<: *default
+  database: weather_forecast_development
+
+test:
+  <<: *default
+  database: weather_forecast_test
+
+production:
+  <<: *default
+  database: weather_forecast_production

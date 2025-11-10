@@ -1,0 +1,13 @@
+<h1 class="text-2xl font-bold mb-6 text-center">Weather Forecast</h1>
+
+<%= form_with url: forecasts_path, method: :post, local: true, class: "space-y-4" do |f| %>
+  <div>
+    <%= f.text_field :address,
+      placeholder: "Enter a city or address",
+      class: "w-full border border-gray-300 rounded-lg p-2" %>
+  </div>
+  <div class="text-center">
+    <%= f.submit "Get Forecast",
+      class: "bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2 rounded-lg" %>
+  </div>
+<% end %>

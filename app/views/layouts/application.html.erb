@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather Forecast</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+  </head>
+
+  <body class="min-h-screen bg-gray-100 text-slate-800">
+    <div class="max-w-2xl mx-auto py-10 px-4">
+      <% if notice %>
+        <div class="mb-4 bg-green-100 text-green-800 p-2 rounded"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <div class="mb-4 bg-red-100 text-red-800 p-2 rounded"><%= alert %></div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>
