@@ -8,7 +8,7 @@ RSpec.describe GeolocationService do
     )
 
     result = described_class.new("Boulder, CO").call
-    expect(result).to include(lat: 40.0, lon: -105.0, zip: "Boulder")
+    expect(result).to include(lat: 40.0, lon: -105.0, location_name: "Boulder")
   end
 
   it "returns nil for invalid address" do

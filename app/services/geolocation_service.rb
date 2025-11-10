@@ -11,7 +11,7 @@ class GeolocationService
     data = response.parsed_response&.first
     return nil unless data["lon"] && data["lat"]
 
-    { lat: data["lat"], lon: data["lon"], zip: data["name"] }
+    { lat: data["lat"], lon: data["lon"], location_name: data["name"] }
   rescue StandardError
     nil
   end
