@@ -1,7 +1,18 @@
 class GeolocationService
   include HTTParty
+  base_uri 'http://api.openweathermap.org/geo/1.0'
 
-  def initialize; end
+  def initialize(address)
+    @address = address
+  end
 
-  def call; end
+  def call
+    response = self.class.get("/direct", query: { q: @address, limit: 1, appid: ENV['OPENWEATHER_API_KEY'] })
+    data = response.parsed_response&.first
+    return nil unless data["lon"] && data["lat"]
+
+    { lat: data["lat"], lon: data["lon"], zip: data["name"] }
+  rescue StandardError
+    nil
+  end
 end

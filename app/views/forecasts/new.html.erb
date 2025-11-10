@@ -3,7 +3,7 @@
 <%= form_with url: forecasts_path, method: :post, local: true, class: "space-y-4" do |f| %>
   <div>
     <%= f.text_field :address,
-      placeholder: "Enter a city or address",
+      placeholder: "Enter a city name",
       class: "w-full border border-gray-300 rounded-lg p-2" %>
   </div>
   <div class="text-center">

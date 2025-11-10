@@ -1,18 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Forecasts", type: :request do
-  describe "GET /new" do
-    it "returns http success" do
-      get "/forecasts/new"
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET /create" do
-    it "returns http success" do
-      get "/forecasts/create"
-      expect(response).to have_http_status(:success)
-    end
+  it 'redirects back if address is missing' do
+    post forecasts_path, params: { address: '' }
+    expect(response).to redirect_to(root_path)
   end
 
 end

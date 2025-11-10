@@ -1,14 +1,14 @@
 <div class="max-w-md mx-auto mt-10 p-6 bg-white rounded-xl shadow">
-  <h2 class="text-2xl font-bold mb-2 text-center"><%= @forecast&[:location] %></h2>
-  <p class="text-center text-gray-600 capitalize mb-4"><%= @forecast&[:description] %></p>
+  <h2 class="text-2xl font-bold mb-2 text-center"><%= @forecast[:location] %></h2>
+  <p class="text-center text-gray-600 capitalize mb-4"><%= @forecast[:description] %></p>
 
   <div class="text-center text-3xl font-semibold mb-2">
-    <%= @forecast&[:temp] %>°F
+    <%= @forecast[:temp] %>°F
   </div>
 
   <p class="text-center text-gray-700">
-    High: <%= @forecast&[:temp_max] %>°F &nbsp; | &nbsp;
-    Low: <%= @forecast&[:temp_min] %>°F
+    High: <%= @forecast[:temp_max] %>°F &nbsp; | &nbsp;
+    Low: <%= @forecast[:temp_min] %>°F
   </p>
 
   <% if @from_cache %>
