@@ -3,6 +3,8 @@ class ForecastsController < ApplicationController
 
   def create
     address = address_params[:address]
+
+    render :show
   end
 
   private
