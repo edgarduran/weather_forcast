@@ -3,7 +3,7 @@ class GeolocationService
   base_uri 'http://api.openweathermap.org/geo/1.0'
 
   def initialize(address)
-    @address = address
+    @address = sanitize_address(address)
   end
 
   def call
@@ -14,5 +14,11 @@ class GeolocationService
     { lat: data["lat"], lon: data["lon"], location_name: data["name"] }
   rescue StandardError
     nil
+  end
+
+  private
+
+  def sanitize_address(address)
+    address.to_s.strip.gsub(/[^a-zA-Z0-9\s]/, " ").squeeze(" ")
   end
 end
