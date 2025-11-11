@@ -30,4 +30,10 @@ RSpec.describe GeolocationService do
     result = described_class.new("Nowhere").call
     expect(result).to be_nil
   end
+
+  it "removes punctuation and commas from address" do
+    service = GeolocationService.new("  Denver, CO ")
+    cleaned = service.instance_variable_get(:@address)
+    expect(cleaned).to eq("Denver CO")
+  end
 end
